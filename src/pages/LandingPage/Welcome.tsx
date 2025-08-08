@@ -11,7 +11,7 @@ export default function Welcome() {
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ duration: 1 }}
+                    transition={{ duration: 0.5 }}
                     className={`absolute inset-0 z-[0]`}>
                     <img
                         src={WelcomeBackground}
@@ -33,7 +33,7 @@ export default function Welcome() {
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ duration: 0.5, delay: 3 }}
-                                className={`mt-7 ml-2 text-xl md:text-2xl font-ruda
+                                className={`mt-7 ml-2 text-2xl md:text-2xl font-ruda
                                 [text-shadow:2px_1px_0px_#000] text-[#E3E3E3]  leading-tight`}>{'The biggest battles start with a good story.'.split('').map((letter, index) => (<motion.span key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 + index * 0.1, duration: 0.1 }}>{letter}</motion.span>))}</motion.p>
                         </div>
 
@@ -52,13 +52,17 @@ export default function Welcome() {
                         <motion.button
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            transition={{ duration: 0.5 }}
+                            transition={{ duration: 0.5, delay: 3 }}
                             className={`bg-[#E3E3E3] text-black py-2 px-8 text-md border-2 border-black border-opacity-100 shadow-[7px_7px_0px_0px_rgba(0,0,0,1)]`}>
                             View products
                         </motion.button>
-                        <button className={`bg-[#F0DBAD] text-black py-2 px-8 text-md border-2 border-black border-opacity-100 shadow-[7px_7px_0px_0px_rgba(0,0,0,1)]`}>
+                        <motion.button
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.5, delay: 3.3 }}
+                            className={`bg-[#F0DBAD] text-black py-2 px-8 text-md border-2 border-black border-opacity-100 shadow-[7px_7px_0px_0px_rgba(0,0,0,1)]`}>
                             About
-                        </button>
+                        </motion.button>
                     </div>
                 </div>
             </section>

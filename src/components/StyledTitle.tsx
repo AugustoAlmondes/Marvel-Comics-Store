@@ -7,7 +7,7 @@ export default function StyledTitle({ text, size }: { text: string; size: string
             transition={{ delay: 2 }}
             className="relative inline-block">
             <div
-                className={`absolute font-bangers font-bold text-${size}  text-[black] z-0
+                className={`absolute font-bangers font-bold text-${size} text-[black] z-0
                     before:text-shadow before:absolute before:[text-shadow:10px_10px_0_#000]`}
                 style={{ top: '4px', left: '6px' }}
             >
