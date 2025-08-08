@@ -11,12 +11,12 @@ export default function NavLinks() {
             path: "#about"
         },
         {
-            name: "Contact",
-            path: "#contact"
+            name: "Products",
+            path: "#products"
         },
         {
-            name: "Shopping car",
-            path: "#shopping-car",
+            name: "Cart",
+            path: "#cart",
         }
     ]
 
