@@ -1,11 +1,12 @@
+import BestProducts from "./BestProducts";
 import Welcome from "./Welcome";
 
 export default function Home() {
     return (
         <>
             <Welcome />
-            {/* <BestProducts />
-            <About /> */}
+            <BestProducts />
+            {/*<About /> */}
         </>
     );
 }
