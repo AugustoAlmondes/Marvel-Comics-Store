@@ -14,7 +14,7 @@ export const Header = () => {
             animate={{ y: 0 }}
             transition={{ duration: 0.5, delay: 1 }}
 
-            className={`bg-gradient-to-l from-[#1A1A1A] to-[#0F0F0F] py-4 px-6 sticky top-0`}>
+            className={`bg-gradient-to-l from-[#1A1A1A] to-[#0F0F0F] py-2 px-6 sticky top-0 z-[999] shadow-[0px_50px_50px_0px_#000000]`}>
             <div className={`flex justify-between items-center max-w-6xl mx-auto`}>
                 <a href='#'>
                     <img
@@ -25,7 +25,7 @@ export const Header = () => {
                 </a>
 
                 <button
-                    className="md:hidden text-[#E3E3E3]"
+                    className={`md:hidden text-[#E3E3E3]`}
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
                 >
                     {isMenuOpen ? <FiX size={26} /> : <FiMenu size={26} />}
@@ -44,11 +44,11 @@ export const Header = () => {
                         animate="visible"
                         exit="exit"
                         variants={{
-                            hidden: { opacity: 0, x: -20 },
-                            visible: { opacity: 1, x: 0 },
+                            hidden: { opacity: 0},
+                            visible: { opacity: 1},
                             exit: { opacity: 0 },
                         }}
-                        className={`md:hidden bg-[#282828] w-full absolute bottom-[-50px] left-0 px-6 py-3 shadow-lg z-[-1]`}>
+                        className={`md:hidden bg-[#282828] w-full absolute bottom-[-40px] left-0 px-6 py-3 shadow-lg z-[1]`}>
                         <motion.nav
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}

@@ -1,4 +1,3 @@
-import { FiShoppingCart } from "react-icons/fi";
 import { motion } from 'motion/react'
 export default function NavLinks() {
 
@@ -14,6 +13,10 @@ export default function NavLinks() {
         {
             name: "Contact",
             path: "#contact"
+        },
+        {
+            name: "Shopping car",
+            path: "#shopping-car",
         }
     ]
 
@@ -22,23 +25,16 @@ export default function NavLinks() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: .5 }}
-            className={`flex items-center space-x-10`}>
+            className={`flex items-center space-x-10 text-[12px] md:text-sm`}>
             {links.map((link, index) => (
                 <motion.a
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-                    key={index} href={link.path} className="hover:text-white transition-colors">
+                    key={index} href={link.path} className={`hover:text-white transition-colors`}>
                     {link.name}
                 </motion.a>
             ))}
-            <motion.a
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.5 + 3 * 0.1 }}
-                href='#' className="flex items-center hover:text-white transition-colors">
-                <FiShoppingCart size={26} className="mr-1" />
-            </motion.a>
         </motion.div>
     );
 };
