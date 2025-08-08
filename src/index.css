@@ -1,1 +1,13 @@
 @import "tailwindcss";
+
+*{
+    font-family: "Roboto Mono", sans-serif;
+}
+
+.font-ruda {
+    font-family: "Ruda", sans-serif;
+}
+
+.font-bangers {
+    font-family: "Bangers", sans-serif;
+}
