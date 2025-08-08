@@ -1,3 +1,4 @@
+import About from "./About";
 import BestProducts from "./BestProducts";
 import Welcome from "./Welcome";
 
@@ -6,7 +7,7 @@ export default function Home() {
         <>
             <Welcome />
             <BestProducts />
-            {/*<About /> */}
+            <About />
         </>
     );
 }
