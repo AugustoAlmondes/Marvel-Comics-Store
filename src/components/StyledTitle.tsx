@@ -5,10 +5,9 @@ export default function StyledTitle({ text, size }: { text: string; size: string
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 2 }}
-            className="relative inline-block">
+            className="relative inline-block w-full h-full">
             <div
-                className={`absolute font-bangers font-bold text-${size} text-[black] z-0
-                    before:text-shadow before:absolute before:[text-shadow:10px_10px_0_#000]`}
+                className={`absolute font-bangers font-bold ${size} text-[black] z-0 before:text-shadow before:absolute before:[text-shadow:10px_10px_0_#000]`}
                 style={{ top: '4px', left: '6px' }}
             >
                 {
@@ -26,7 +25,7 @@ export default function StyledTitle({ text, size }: { text: string; size: string
                 }
             </div>
 
-            <h1 className={`relative font-bangers text-${size} bg-clip-text text-transparent bg-gradient-to-l from-[#FFAE00] to-[#F0DBAD] z-10
+            <h1 className={`relative font-bangers ${size} bg-clip-text text-transparent bg-gradient-to-l from-[#FFAE00] to-[#F0DBAD] z-10
                 before:[text-shadow:10px_10px_0_#144asd] [-webkit-text-stroke:2px_#000]`}>
                 {
                     text.split('').map((letter, index) => (
