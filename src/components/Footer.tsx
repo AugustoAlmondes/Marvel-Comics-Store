@@ -21,7 +21,7 @@ export default function Footer() {
                         <h2 className={`font-bangers text-4xl mb-4`}>MARVELOUS</h2>
                         <p className={`text-sm mb-6 text-center md:text-left`}>The ultimate destination for comic collectors</p>
 
-                        <div className={`flex space-x-4`}>
+                        <div className={`flex space-x-4 flex-wrap gap-2`}>
                             <motion.a
                                 href="#"
                                 whileHover={{ y: -3 }}
