@@ -1,19 +1,11 @@
 import { motion } from 'motion/react';
-import ComicCard from '../components/ComicCard';
-import BackgroundTop from '../assets/comics-bg-top.png';
-import BackgroundBottom from '../assets/comics-bg-bottom.png';
+import { comics } from '../../data/Cards';
+import BackgroundTop from '../../assets/about-background.png';
+import BackgroundBottom from '../../assets/welcome-background.png';
+import ComicCard from '../../components/ComicCard';
 
 // Dados mockados
-const mockComics = Array(12).fill({
-    id: 1,
-    title: 'Amazing Spider-Man',
-    thumbnail: {
-        path: 'https://i.annihil.us/u/prod/marvel/i/mg/6/c0/5e3d2176fe6a6',
-        extension: 'jpg'
-    },
-    price: 4.99,
-    isRare: Math.random() < 0.1 // 10% chance de ser raro
-});
+
 
 export const AllComics = () => {
     return (
@@ -23,7 +15,6 @@ export const AllComics = () => {
             exit={{ opacity: 0 }}
             className={`relative overflow-hidden min-h-screen py-16 bg-[#0A0A0A]`}
         >
-            {/* Backgrounds */}
             <motion.img
                 src={BackgroundTop}
                 alt=""
@@ -42,22 +33,19 @@ export const AllComics = () => {
                 transition={{ duration: 0.8 }}
             />
 
-            {/* Conteúdo principal */}
             <div className={`relative z-10 container mx-auto px-4`}>
-                {/* Títulos */}
                 <motion.div
                     initial={{ y: -20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.2 }}
                     className={`text-center mb-16`}
                 >
-                    <h1 className={`text-5xl md:text-7xl font-bold mb-4 styledTitle`}>View All Products</h1>
-                    <p className={`text-xl md:text-2xl text-[#E2E2E2]`}>
+                    <h1 className={`text-5xl md:text-7xl mb-4 font-bangers`}>View All Products</h1>
+                    <p className={`text-xl md:text-2xl text-[#E2E2E2] font-ruda`}>
                         Discover the rarest gems in the Marvel universe
                     </p>
                 </motion.div>
 
-                {/* Busca */}
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -72,21 +60,20 @@ export const AllComics = () => {
                             placeholder="Type your favorite hero..."
                         />
                         <button
-                            className={`absolute right-1 top-1 bg-[#B5F684] text-black py-2 px-4 rounded-md border-2 border-black`}
+                            className={`absolute right-1 top-1 bg-[#B5F684] text-black py-1 px-4 rounded-md border-3 border-black [box-shadow:3px_3px_0px_0px_#000]`}
                         >
                             Search
                         </button>
                     </div>
                 </motion.div>
 
-                {/* Listagem de quadrinhos */}
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.6 }}
                 >
-                    <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8`}>
-                        {mockComics.map((comic, index) => (
+                    <div className={`grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-8`}>
+                        {comics.map((comic, index) => (
                             <motion.div
                                 key={index}
                                 initial={{ opacity: 0, y: 20 }}
@@ -98,7 +85,6 @@ export const AllComics = () => {
                         ))}
                     </div>
 
-                    {/* Paginação */}
                     <div className={`flex justify-center mt-12 gap-2`}>
                         {[1, 2, 3, 4, 5].map((page) => (
                             <motion.button

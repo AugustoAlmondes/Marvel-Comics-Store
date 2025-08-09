@@ -1,14 +1,13 @@
 // pages/ProductDetails.tsx
 import { motion } from 'motion/react';
-import { FaArrowLeft, FaShoppingCart, FaHeart } from 'react-icons/fa';
+import { FaArrowLeft } from 'react-icons/fa';
+import { Link } from 'react-router';
 import ComicCard from '../../components/ComicCard';
 import InfoBackground from '../../assets/info-background.png';
+import { comics } from '../../data/Cards';
 // import { useParams } from 'react-router';
 
 export default function ProductDetails() {
-    // const { id } = useParams(); // Captura o ID do produto da URL
-
-    // Dados mockados (substitua por chamada API real)
     const comic = {
         id: 1,
         title: "The Amazing Spider-Man #1",
@@ -22,45 +21,10 @@ export default function ProductDetails() {
             artists: "Steve Ditko",
             pages: 32
         },
-        related: [
-            {
-                image: './comic1.jpg',
-                title: 'The Amazing Spider-Man',
-                issue: 'Issue #1',
-                price: '$4.99'
-            },
-            {
-                image: './comic2.jpg',
-                title: 'Avengers: Endgame',
-                issue: 'Issue #24',
-                price: '$5.99'
-            },
-            {
-                image: './comic2.jpg',
-                title: 'X-Men: Dark Phoenix',
-                issue: 'Issue #137',
-                price: '$3.99'
-            },
-            {
-                image: './comic2.jpg',
-                title: 'X-Men: Dark Phoenix',
-                issue: 'Issue #137',
-                price: '$3.99'
-            },
-            {
-                image: './comic2.jpg',
-                title: 'X-Men: Dark Phoenix',
-                issue: 'Issue #137',
-                price: '$3.99'
-            },
-            {
-                image: './comic1.jpg',
-                title: 'Iron Man: Extremis',
-                issue: 'Issue #1',
-                price: '$4.49'
-            }
-        ]
+        related: comics.splice(0, 4)
     };
+
+
 
     return (
         <div className="bg-[#0A0A0A] min-h-screen relative text-[#E3E3E3]">
@@ -96,24 +60,8 @@ export default function ProductDetails() {
                             <img
                                 src={comic.cover}
                                 alt={comic.title}
-                                className="w-full max-h-[80vh] object-contain rounded-lg border-2 border-[#E3E3E3]"
+                                className="mx-auto max-h-[70vh] object-contain rounded-lg border-2 border-[#E3E3E3]"
                             />
-                            <div className="absolute bottom-4 right-4 flex gap-3">
-                                <motion.button
-                                    whileHover={{ scale: 1.1 }}
-                                    whileTap={{ scale: 0.9 }}
-                                    className="p-3 bg-[#E3E3E3] text-black rounded-full"
-                                >
-                                    <FaShoppingCart size={20} />
-                                </motion.button>
-                                <motion.button
-                                    whileHover={{ scale: 1.1 }}
-                                    whileTap={{ scale: 0.9 }}
-                                    className="p-3 border border-[#E3E3E3] rounded-full"
-                                >
-                                    <FaHeart size={20} />
-                                </motion.button>
-                            </div>
                         </motion.div>
 
                         <motion.div
@@ -165,18 +113,22 @@ export default function ProductDetails() {
                         <h2 className={`font-bangers text-3xl mb-8 relative z-10`}>Related Comics</h2>
                         <div className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 mb-12 relative z-10`}>
                             {comic.related.map((comic, index) => (
-                                <ComicCard
+                                <motion.div
                                     key={index}
-                                    image={comic.image}
-                                    title={comic.title}
-                                    issue={comic.issue}
-                                    price={comic.price}
-                                />
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.1 * index }}
+                                >
+                                    <ComicCard comic={comic} />
+                                </motion.div>
                             ))}
                         </div>
-                        <button className={`absolute left-1/2 transform -translate-x-1/2 bottom-[-60px] text-[#E3E3E3] underline py-3 px-6 font-bold z-10 hover:text-[#B5F684] transition-colors`}>
-                            View More
-                        </button>
+                        <Link to='/products'>
+                            <button
+                                className={`absolute left-1/2 transform -translate-x-1/2 bottom-[-60px] text-[#E3E3E3] underline py-3 px-6 font-bold z-10 hover:text-[#B5F684] transition-colors`}>
+                                View More
+                            </button>
+                        </Link>
                     </section>
                 </main>
             </div>

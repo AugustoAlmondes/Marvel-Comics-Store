@@ -1,45 +1,7 @@
 import StyledTitle from '../../components/StyledTitle';
 import ComicCard from '../../components/ComicCard';
 import { motion } from 'motion/react';
-
-const comics = [
-    {
-        image: './comic1.jpg',
-        title: 'The Amazing Spider-Man',
-        issue: 'Issue #1',
-        price: '$4.99'
-    },
-    {
-        image: './comic2.jpg',
-        title: 'Avengers: Endgame',
-        issue: 'Issue #24',
-        price: '$5.99'
-    },
-    {
-        image: './comic2.jpg',
-        title: 'X-Men: Dark Phoenix',
-        issue: 'Issue #137',
-        price: '$3.99'
-    },
-    {
-        image: './comic1.jpg',
-        title: 'Iron Man: Extremis',
-        issue: 'Issue #1',
-        price: '$4.49'
-    },
-    {
-        image: './comic1.jpg',
-        title: 'Thor: God of Thunder',
-        issue: 'Issue #25',
-        price: '$5.49'
-    },
-    {
-        image: './comic2.jpg',
-        title: 'Iron Man: Extremis',
-        issue: 'Issue #1',
-        price: '$4.49'
-    }
-];
+import { comics } from '../../data/Cards';
 
 export default function BestProducts() {
     return (
@@ -64,10 +26,10 @@ export default function BestProducts() {
                 {comics.map((comic, index) => (
                     <ComicCard
                         key={index}
-                        image={comic.image}
-                        title={comic.title}
-                        issue={comic.issue}
-                        price={comic.price}
+                        comic={{
+                            ...comic,
+                            isRare: Math.random() < 0.1 // 10% chance de ser raro
+                        }}
                     />
                 ))}
             </div>
