@@ -28,14 +28,14 @@ export default function NavLinks() {
             transition={{ duration: 0.5, delay: .5 }}
             className={`flex items-center space-x-10 text-[12px] md:text-sm`}>
             {links.map((link, index) => (
-                <Link to={link.path}>
-                    <motion.a
+                <Link key={index} to={link.path}>
+                    <motion.p
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-                        key={index} href={link.path} className={`hover:text-white transition-colors`}>
+                        key={index} className={`hover:text-white transition-colors`}>
                         {link.name}
-                    </motion.a>
+                    </motion.p>
                 </Link>
             ))}
         </motion.div>
