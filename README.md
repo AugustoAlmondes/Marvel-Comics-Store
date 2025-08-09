@@ -1,69 +1,142 @@
-# React + TypeScript + Vite
+# Marvel Comics Store - README
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📝 Descrição do Projeto
+Front-end de uma loja virtual de quadrinhos da Marvel desenvolvido como desafio técnico para a NeoApp, com:
+- Listagem paginada de HQs
+- Páginas de detalhes dos produtos
+- Carrinho com sistema de cupons
+- Layout responsivo mobile-first
 
-Currently, two official plugins are available:
+## ✅ Requisitos Implementados (PDF)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🏗️ Estrutura Básica
+- [x] React + TypeScript + Vite
+- [x] Styled Components com Tailwind CSS
+- [x] Componentização dos elementos
+- [x] Layout responsivo (mobile-first)
 
-## Expanding the ESLint configuration
+### 🛒 Funcionalidades do Carrinho
+- [x] Adição/remoção de itens
+- [x] Ajuste de quantidades
+- [x] Cálculo automático de subtotal
+- [x] Sistema de cupons de desconto:
+  - Cupons comuns (15% de desconto)
+  - Cupons raros (10% de desconto)
+- [x] Validação de cupons por tipo de HQ
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 🖼️ Páginas Implementadas
+1. **Home**
+   - Seção Welcome com CTA
+   - Destaque de produtos
+   - Seção About
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+2. **Catálogo (All Comics)**
+   - Grid responsivo
+   - Paginação
+   - Filtro de busca
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+3. **Detalhes do Produto**
+   - Galeria de imagens
+   - Informações detalhadas
+   - Quadrinhos relacionados
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+4. **Carrinho**
+   - Listagem de itens
+   - Aplicação de cupons
+   - Resumo do pedido
+
+## 🛠️ Tecnologias Utilizadas
+
+### Core
+- React 18
+- TypeScript
+- Vite
+
+### Estilização
+- Tailwind CSS
+- Framer Motion (animações)
+- React Icons
+
+### Gerenciamento de Estado
+- Context API
+- React Router
+
+### Testes
+- Cypress (testes E2E)
+
+## 🏗️ Estrutura de Arquivos
+
+```
+src/
+├── api/                  # Serviços de API
+├── assets/               # Imagens e recursos estáticos
+├── components/           # Componentes reutilizáveis
+├── contexts/             # Gerenciamento de estado
+├── hooks/                # Hooks customizados
+├── pages/                # Páginas da aplicação
+├── types/                # Tipos TypeScript
+├── utils/                # Funções utilitárias
+├── App.tsx
+└── main.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🚀 Como Executar
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Instale as dependências:
+```bash
+npm install
 ```
+
+2. Configure as variáveis de ambiente:
+```bash
+cp .env.example .env
+# Preencha com suas chaves da API Marvel
+```
+
+3. Inicie o servidor de desenvolvimento:
+```bash
+npm run dev
+```
+
+4. Para build de produção:
+```bash
+npm run build
+```
+
+## 🧪 Testes
+
+Execute os testes E2E com Cypress:
+```bash
+npm run cypress:open
+```
+
+## 💡 Diferenciais Implementados
+
+### Além do PDF
+- Animações com Framer Motion
+- Feedback visual ao adicionar itens
+- Persistência do carrinho no localStorage
+- Loaders e estados de carregamento
+- Tratamento de erros da API
+
+### Cupons Válidos (Conforme PDF)
+**Cupons Comuns (15% desconto):**
+- `COMUM15`
+- `HEROIS25`
+
+**Cupons Raros (10% desconto):**
+- `RARO10`
+- `MARVEL20`
+
+## 📌 Próximos Passos
+
+1. Implementar autenticação de usuários
+2. Conectar com backend real
+3. Adicionar mais testes E2E
+4. Implementar avaliação de produtos
+
+## 📧 Contato
+
+Desenvolvido por [Seu Nome]  
+Email: [seu@email.com]  
+GitHub: [@seuusername]
