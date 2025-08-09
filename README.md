@@ -48,7 +48,7 @@ Front-end de uma loja virtual de quadrinhos da Marvel desenvolvido como desafio 
 ## 🛠️ Tecnologias Utilizadas
 
 ### Core
-- React 18
+- React.js
 - TypeScript
 - Vite
 
@@ -56,13 +56,14 @@ Front-end de uma loja virtual de quadrinhos da Marvel desenvolvido como desafio 
 - Tailwind CSS
 - Framer Motion (animações)
 - React Icons
+- Toastify
 
 ### Gerenciamento de Estado
 - Context API
 - React Router
 
-### Testes
-- Cypress (testes E2E)
+<!-- ### Testes
+- Cypress (testes E2E) -->
 
 ## 🏗️ Estrutura de Arquivos
 
@@ -74,6 +75,7 @@ src/
 ├── contexts/             # Gerenciamento de estado
 ├── hooks/                # Hooks customizados
 ├── pages/                # Páginas da aplicação
+├── providers/            # Provedores
 ├── types/                # Tipos TypeScript
 ├── utils/                # Funções utilitárias
 ├── App.tsx
@@ -103,12 +105,12 @@ npm run dev
 npm run build
 ```
 
-## 🧪 Testes
+<!-- ## 🧪 Testes
 
 Execute os testes E2E com Cypress:
 ```bash
 npm run cypress:open
-```
+``` -->
 
 ## 💡 Diferenciais Implementados
 
@@ -121,22 +123,22 @@ npm run cypress:open
 
 ### Cupons Válidos (Conforme PDF)
 **Cupons Comuns (15% desconto):**
-- `COMUM15`
-- `HEROIS25`
+- `COMUM17`
+- `HEROIS03`
 
 **Cupons Raros (10% desconto):**
-- `RARO10`
-- `MARVEL20`
+- `RARO17`
+- `MARVEL03`
 
 ## 📌 Próximos Passos
 
 1. Implementar autenticação de usuários
 2. Conectar com backend real
-3. Adicionar mais testes E2E
+3. Realizar testes E2E
 4. Implementar avaliação de produtos
 
 ## 📧 Contato
 
-Desenvolvido por [Seu Nome]  
-Email: [seu@email.com]  
-GitHub: [@seuusername]
+Desenvolvido por Augusto Almondes 
+Email: [almondesaugusto@gmail.com]  
+GitHub: [@AugustoAlmondes]
