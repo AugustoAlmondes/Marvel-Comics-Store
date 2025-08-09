@@ -1,17 +1,8 @@
 import { motion } from 'motion/react';
-import { FiShoppingCart, FiX } from 'react-icons/fi';
+import {  FiX } from 'react-icons/fi';
 import ComicCard from '../../components/ComicCard';
-// import type { ComicCard as ComicCardType } from '../types/ComicCard';
-// import { comics } from '../data/Cards';
+import type { ComicCardType } from '../types/ComicCard';
 import { useState } from 'react';
-import { comics } from '../../data/Cards';
-
-// Dados mockados - substitua pela sua lógica de carrinho real
-const cartItems = [
-    { ...comics[0], quantity: 1, isRare: true },
-    { ...comics[1], quantity: 2, isRare: false },
-    { ...comics[2], quantity: 1, isRare: false }
-];
 
 // Cupons mockados (conforme PDF)
 const RARE_COUPONS = ["RARO10", "MARVEL20"];

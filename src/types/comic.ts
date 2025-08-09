@@ -1,16 +1,25 @@
-export interface ComicCard {
-    comic: {
-        id: number;
-        title: string;
-        thumbnail: {
-            path: string;
-            extension: string;
-        };
-        prices: {
-            type: string;
-            price: number;
-        }[];
-        issueNumber?: number;
-        isRare?: boolean;
+export interface ComicCardType {
+    id: number;
+    title: string;
+    pageCount?: number;
+    textObjects: [
+        {
+            text: string
+        }
+    ];
+    thumbnail: {
+        path: string;
+        extension: string;
     };
+    prices: {
+        type: string;
+        price: number;
+    }[];
+    creators?: {
+        items: {
+            name: string;
+            role: string;
+        }[];
+    };
+    isRare?: boolean;
 }

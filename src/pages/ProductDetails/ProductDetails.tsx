@@ -4,7 +4,6 @@ import { FaArrowLeft } from 'react-icons/fa';
 import { Link } from 'react-router';
 import ComicCard from '../../components/ComicCard';
 import InfoBackground from '../../assets/info-background.png';
-import { comics } from '../../data/Cards';
 // import { useParams } from 'react-router';
 
 export default function ProductDetails() {
@@ -21,10 +20,10 @@ export default function ProductDetails() {
             artists: "Steve Ditko",
             pages: 32
         },
-        related: comics.splice(0, 4)
+        related: [...comics]
     };
 
-
+    console.log(comic.related);
 
     return (
         <div className="bg-[#0A0A0A] min-h-screen relative text-[#E3E3E3]">

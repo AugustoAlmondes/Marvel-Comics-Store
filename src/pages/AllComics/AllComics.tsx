@@ -1,13 +1,17 @@
 import { motion } from 'motion/react';
-import { comics } from '../../data/Cards';
 import BackgroundTop from '../../assets/about-background.png';
 import BackgroundBottom from '../../assets/welcome-background.png';
 import ComicCard from '../../components/ComicCard';
+import { useComics } from '../../hooks/useComics';
+// import { useEffect } from 'react';
 
 // Dados mockados
 
 
 export const AllComics = () => {
+    
+    const { data } = useComics();
+
     return (
         <motion.section
             initial={{ opacity: 0 }}
@@ -72,8 +76,8 @@ export const AllComics = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.6 }}
                 >
-                    <div className={`grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-8`}>
-                        {comics.map((comic, index) => (
+                    <div className={`grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8`}>
+                        { data && Array.isArray(data) && data.map((comic, index) => (
                             <motion.div
                                 key={index}
                                 initial={{ opacity: 0, y: 20 }}
