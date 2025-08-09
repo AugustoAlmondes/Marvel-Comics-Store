@@ -1,22 +1,23 @@
 import { motion } from 'motion/react'
+import { Link } from 'react-router';
 export default function NavLinks() {
 
     const links = [
         {
             name: "Home",
-            path: "#home"
+            path: "/"
         },
         {
             name: "About",
-            path: "#about"
+            path: "/about"
         },
         {
             name: "Products",
-            path: "#products"
+            path: "/products"
         },
         {
             name: "Cart",
-            path: "#cart",
+            path: "/cart",
         }
     ]
 
@@ -27,13 +28,15 @@ export default function NavLinks() {
             transition={{ duration: 0.5, delay: .5 }}
             className={`flex items-center space-x-10 text-[12px] md:text-sm`}>
             {links.map((link, index) => (
-                <motion.a
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-                    key={index} href={link.path} className={`hover:text-white transition-colors`}>
-                    {link.name}
-                </motion.a>
+                <Link to={link.path}>
+                    <motion.a
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+                        key={index} href={link.path} className={`hover:text-white transition-colors`}>
+                        {link.name}
+                    </motion.a>
+                </Link>
             ))}
         </motion.div>
     );
