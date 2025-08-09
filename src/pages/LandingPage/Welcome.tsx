@@ -5,7 +5,7 @@ import { motion } from 'motion/react';
 
 export default function Welcome() {
     return (
-        <section className="relative w-full min-h-[50vh] py-20 overflow-hidden">
+        <section className="relative w-full min-h-[50vh] py-5 overflow-hidden">
             {/* Background com inner shadow */}
             <motion.div
                 initial={{ opacity: 0 }}
