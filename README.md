@@ -1,144 +1,157 @@
-# Marvel Comics Store - README
 
-## 📝 Descrição do Projeto
-Front-end de uma loja virtual de quadrinhos da Marvel desenvolvido como desafio técnico para a NeoApp, com:
-- Listagem paginada de HQs
-- Páginas de detalhes dos produtos
-- Carrinho com sistema de cupons
-- Layout responsivo mobile-first
+# 🚀 Marvel Comics Store
 
-## ✅ Requisitos Implementados (PDF)
+> **Desenvolvido como desafio técnico para a NeoApp** — Um e-commerce moderno e responsivo de quadrinhos da Marvel, com listagem, detalhes, carrinho e sistema de cupons.
 
-### 🏗️ Estrutura Básica
-- [x] React + TypeScript + Vite
-- [x] Styled Components com Tailwind CSS
-- [x] Componentização dos elementos
-- [x] Layout responsivo (mobile-first)
+![Home da Marvel Comics Store](./public/welcome.jpg)
 
-### 🛒 Funcionalidades do Carrinho
-- [x] Adição/remoção de itens
-- [x] Ajuste de quantidades
-- [x] Cálculo automático de subtotal
-- [x] Sistema de cupons de desconto:
-  - Cupons comuns (15% de desconto)
-  - Cupons raros (10% de desconto)
-- [x] Validação de cupons por tipo de HQ
+---
 
-### 🖼️ Páginas Implementadas
-1. **Home**
-   - Seção Welcome com CTA
-   - Destaque de produtos
-   - Seção About
+## 📝 Sobre o Projeto
 
-2. **Catálogo (All Comics)**
-   - Grid responsivo
-   - Paginação
-   - Filtro de busca
+A **Marvel Comics Store** é uma aplicação **React + TypeScript** que simula uma loja virtual de HQs da Marvel.
+O projeto foi pensado **mobile-first**, com **UI autoral** desenvolvida no **Figma** e finalizada com recursos de estilização no **Tailwind CSS** e **Framer Motion**.
 
-3. **Detalhes do Produto**
-   - Galeria de imagens
-   - Informações detalhadas
-   - Quadrinhos relacionados
+O sistema conta com:
 
-4. **Carrinho**
-   - Listagem de itens
-   - Aplicação de cupons
-   - Resumo do pedido
+* **Listagem paginada** de HQs
+* **Página de detalhes** com informações completas
+* **Carrinho** funcional com cupons de desconto (comuns e raros)
+* **Persistência de dados no localStorage**
+* **Layout responsivo** e **animações suaves**
+
+---
+
+## ✅ Funcionalidades Implementadas
+
+### **Estrutura e Layout**
+
+* React + TypeScript + Vite
+* Styled Components integrados ao Tailwind CSS
+* Layout **mobile-first** e totalmente responsivo
+* Componentização para reuso e manutenção
+
+### **Catálogo de HQs**
+
+* Listagem paginada com dados da **Marvel API**
+* Grid responsivo
+* Filtro de busca
+* 10% dos quadrinhos marcados como **raros** de forma aleatória
+
+### **Página de Detalhes**
+
+* Galeria de imagens
+* Informações detalhadas
+* Lista de quadrinhos relacionados
+
+### **Carrinho**
+
+* Adicionar/remover HQs
+* Ajustar quantidades
+* Cálculo automático de subtotal
+* Aplicação de cupons:
+
+  * **Cupons comuns (15%)**
+  * **Cupons raros (10%)**
+* Validação por tipo de HQ
+
+---
 
 ## 🛠️ Tecnologias Utilizadas
 
-### Core
-- React.js
-- TypeScript
-- Vite
+| Categoria          | Tecnologias                                                 |
+| ------------------ | ----------------------------------------------------------- |
+| **Core**           | React.js, TypeScript, Vite                                  |
+| **Estilização**    | Tailwind CSS, Styled Components, Framer Motion, React Icons |
+| **Estado & Rotas** | Context API, React Router                                   |
+| **Utilitários**    | Axios, React Toastify                                       |
+| **API**            | Marvel API                                                  |
 
-### Estilização
-- Tailwind CSS
-- Framer Motion (animações)
-- React Icons
-- Toastify
+---
 
-### Gerenciamento de Estado
-- Context API
-- React Router
-
-<!-- ### Testes
-- Cypress (testes E2E) -->
-
-## 🏗️ Estrutura de Arquivos
+## 📂 Estrutura do Projeto
 
 ```
 src/
-├── api/                  # Serviços de API
-├── assets/               # Imagens e recursos estáticos
-├── components/           # Componentes reutilizáveis
-├── contexts/             # Gerenciamento de estado
-├── hooks/                # Hooks customizados
-├── pages/                # Páginas da aplicação
-├── providers/            # Provedores
-├── types/                # Tipos TypeScript
-├── utils/                # Funções utilitárias
+├── api/         # Integração com APIs
+├── assets/      # Imagens e recursos
+├── components/  # Componentes reutilizáveis
+├── contexts/    # Gerenciamento de estado
+├── hooks/       # Hooks customizados
+├── pages/       # Páginas da aplicação
+├── providers/   # Providers de contexto
+├── types/       # Tipos TypeScript
+├── utils/       # Funções utilitárias
 ├── App.tsx
+├── index.css
 └── main.tsx
 ```
 
-## 🚀 Como Executar
+---
 
-1. Instale as dependências:
+## 🚀 Como Rodar o Projeto
+
 ```bash
+# 1. Instalar dependências
 npm install
-```
 
-2. Configure as variáveis de ambiente:
-```bash
+# 2. Configurar variáveis de ambiente
 cp .env.example .env
-# Preencha com suas chaves da API Marvel
-```
+# Preencher com as chaves da API Marvel
 
-3. Inicie o servidor de desenvolvimento:
-```bash
+# 3. Rodar em modo desenvolvimento
 npm run dev
-```
 
-4. Para build de produção:
-```bash
+# 4. Build para produção
 npm run build
 ```
 
-<!-- ## 🧪 Testes
+---
 
-Execute os testes E2E com Cypress:
-```bash
-npm run cypress:open
-``` -->
+## 🎯 Cupons Disponíveis
 
-## 💡 Diferenciais Implementados
+**Cupons Comuns (15% desconto)**
+`COMUM17` — `HEROIS03`
 
-### Além do PDF
-- Animações com Framer Motion
-- Feedback visual ao adicionar itens
-- Persistência do carrinho no localStorage
-- Loaders e estados de carregamento
-- Tratamento de erros da API
+**Cupons Raros (10% desconto)**
+`RARO17` — `MARVEL03`
 
-### Cupons Válidos (Conforme PDF)
-**Cupons Comuns (15% desconto):**
-- `COMUM17`
-- `HEROIS03`
-
-**Cupons Raros (10% desconto):**
-- `RARO17`
-- `MARVEL03`
+---
 
 ## 📌 Próximos Passos
 
-1. Implementar autenticação de usuários
-2. Conectar com backend real
-3. Realizar testes E2E
-4. Implementar avaliação de produtos
+* Autenticação de usuários
+* Integração com backend real
+* Testes E2E com Cypress
+* Avaliação de produtos
+
+---
+
+## 🖼️ Preview
+
+![Home da Marvel Comics Store](./public/welcome.jpg)  
+*Home da loja*
+
+![Produtos](./public/view.jpg)  
+*Listagem de produtos*
+
+![Tela de informação](./public/info.jpg)  
+*Detalhes do quadrinho*
+
+![Carrinho](./public/cart.jpg)  
+*Carrinho de compras*
+
+## 🎨 Design
+
+O design foi criado no **Figma** e refinado com **Photoshop**:
+[🔗 Link para o protótipo](https://embed.figma.com/design/JnTNFmAHzwoLC1BDFnA70t/Marvel?node-id=0-1&embed-host=share)
+
+---
 
 ## 📧 Contato
 
-Desenvolvido por Augusto Almondes 
-Email: [almondesaugusto@gmail.com]  
-GitHub: [@AugustoAlmondes]
+**Augusto Almondes**
+📩 [almondesaugusto@gmail.com](mailto:almondesaugusto@gmail.com)
+💻 [GitHub](https://github.com/AugustoAlmondes)
+
+---
