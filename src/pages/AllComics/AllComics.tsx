@@ -5,14 +5,19 @@ import ComicCard from '../../components/ComicCard';
 import { Bounce, ToastContainer } from 'react-toastify';
 import { useComics } from '../../hooks/useComics';
 import Loading from '../../components/Loading';
-// import { useEffect } from 'react';
 
-// Dados mockados
+export default function AllComics() {
 
+    const { paginatedComics,
+        currentPage,
+        totalPages,
+        setCurrentPage,
+        isLoading } = useComics();
 
-export const AllComics = () => {
-
-    const { comics, isLoading } = useComics();
+    const handlePageChange = (newPage: number) => {
+        setCurrentPage(newPage);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 
     return (
         <motion.section
@@ -92,35 +97,50 @@ export const AllComics = () => {
                     transition={{ delay: 0.6 }}
                 >{isLoading ? (
                     <div className={`flex justify-center items-center`}>
-                        <Loading/>
+                        <Loading />
                     </div>
                 ) :
                     (
                         <>
-                            <div className={`pt-30 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8`}>
-                                {comics && Array.isArray(comics) && comics.map((comic, index) => (
+                            <div className={`grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8`}>
+                                {paginatedComics.map((comic, index) => (
                                     <motion.div
-                                        key={index}
+                                        key={`${comic.id}-${currentPage}`} // Importante para evitar bugs no React
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: 0.1 * index }}
+                                        transition={{ delay: 0.1 * (index % 20) }} // Delay baseado no índice da página
                                     >
                                         <ComicCard comic={comic} />
                                     </motion.div>
                                 ))}
                             </div>
 
+                            {/* Paginação melhorada */}
                             <div className={`flex justify-center mt-12 gap-2`}>
-                                {[1, 2, 3, 4, 5].map((page) => (
-                                    <motion.button
-                                        key={page}
-                                        whileHover={{ scale: 1.05 }}
-                                        whileTap={{ scale: 0.95 }}
-                                        className={`w-10 h-10 rounded-full ${page === 1 ? 'bg-[#B5F684] text-black' : 'bg-[#1A1A1A] text-white'}`}
-                                    >
-                                        {page}
-                                    </motion.button>
-                                ))}
+
+
+                                {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
+                                    const page = Math.max(1, Math.min(
+                                        currentPage - 2,
+                                        totalPages - 4
+                                    )) + i;
+
+                                    return page <= totalPages ? (
+                                        <motion.button
+                                            key={page}
+                                            onClick={() => handlePageChange(page)}
+                                            whileHover={{ scale: 1.05 }}
+                                            whileTap={{ scale: 0.95 }}
+                                            className={`w-10 h-10 rounded-full ${page === currentPage
+                                                ? 'bg-[#B5F684] text-black'
+                                                : 'bg-[#1A1A1A] text-white'
+                                                }`}
+                                        >
+                                            {page}
+                                        </motion.button>
+                                    ) : null;
+                                })}
+
                             </div>
                         </>
                     )}

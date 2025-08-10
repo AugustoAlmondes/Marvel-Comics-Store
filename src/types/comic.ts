@@ -26,7 +26,11 @@ export interface ComicCardType {
 
 export interface ComicsContextType {
     comics: ComicCardType[];
+    rareComics: ComicCardType[];
+    currentPage: number;
+    totalPages: number;
     isLoading: boolean;
     error: Error | null;
-    refetch: () => void;
+    setCurrentPage: (page: number) => void;
+    paginatedComics: ComicCardType[];
 }
