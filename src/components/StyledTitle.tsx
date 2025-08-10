@@ -16,7 +16,7 @@ export default function StyledTitle({ text, size }: { text: string; size: string
                             key={index}
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            transition={{ delay: 2.3 + index * 0.2, duration: 0.5 }}
+                            transition={{ delay: 1.3 + index * 0.2, duration: 0.5 }}
                             className={`font-bangers`}
                         >
                             {letter}
@@ -33,7 +33,7 @@ export default function StyledTitle({ text, size }: { text: string; size: string
                             key={index}
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            transition={{ delay: 2 + index * 0.1, duration: 0.5 }}
+                            transition={{ delay: 1 + index * 0.1, duration: 0.5 }}
                             className={`font-bangers`}
                         >
                             {letter}

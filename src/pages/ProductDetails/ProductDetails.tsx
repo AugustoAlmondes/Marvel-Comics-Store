@@ -27,7 +27,7 @@ export default function ProductDetails() {
     if (isLoading) {
         return (
             <div className={`w-full h-screen flex flex-col gap-4 items-center justify-center bg-[#0A0A0A]`}>
-                <Loading/>
+                <Loading />
             </div>
         );
     }
@@ -43,14 +43,12 @@ export default function ProductDetails() {
         );
     }
 
-    const handleAddToCart = (e: React.MouseEvent) => {
+    function handleAddToCart(e: React.MouseEvent) {
         e.stopPropagation();
-        e.preventDefault();
 
         addItem({
             ...comic,
-            quantity: 1,
-            isRare: comic.isRare || false
+            quantity: 1
         });
 
         toast.success('Item adicionado ao carrinho!');
@@ -152,15 +150,17 @@ export default function ProductDetails() {
                                 <motion.button
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
-                                    onClick={handleAddToCart}
-                                    className={`flex-1 bg-gradient-to-r from-[#CCF8AB] to-[#B5F684] text-black py-3 px-6 font-bold border-2 border-black`}
+                                    onClick={(e) => {
+                                        handleAddToCart(e);
+                                    }}
+                                    className={`flex-1 bg-gradient-to-r from-[#CCF8AB] to-[#B5F684] text-black py-3 px-6 font-bold border-2 border-black cursor-pointer`}
                                 >
                                     ADD TO CART
                                 </motion.button>
                                 <motion.button
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
-                                    className={`flex-1 border-2 border-[#E3E3E3] py-3 px-6`}
+                                    className={`flex-1 border-2 border-[#E3E3E3] py-3 px-6 cursor-pointer`}
                                 >
                                     BUY NOW
                                 </motion.button>

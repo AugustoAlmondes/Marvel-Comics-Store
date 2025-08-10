@@ -41,8 +41,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
             }
 
             return [...prevItems, {
-                ...newItem,
-                isRare: Math.random() < 0.1 // 10% chance de ser raro
+                ...newItem
             }];
         });
     };

@@ -7,10 +7,7 @@ export default function Footer() {
     return (
         <footer className={`bg-[#0A0A0A] text-[#E3E3E3] border-t-2 border-[#E3E3E3]`}>
             <div className={`container mx-auto px-6 md:px-12 lg:px-24 py-12`}>
-                {/* Grid do Footer */}
                 <div className={`grid grid-cols-1 md:grid-cols-4 gap-10`}>
-
-                    {/* Coluna 1 - Logo e redes sociais */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -52,8 +49,6 @@ export default function Footer() {
                             </motion.a>
                         </div>
                     </motion.div>
-
-                    {/* Coluna 2 - Links rápidos */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -69,7 +64,6 @@ export default function Footer() {
                         </ul>
                     </motion.div>
 
-                    {/* Coluna 3 - Contato */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -87,7 +81,6 @@ export default function Footer() {
                         </ul>
                     </motion.div>
 
-                    {/* Coluna 4 - Newsletter */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -114,8 +107,6 @@ export default function Footer() {
                         </form>
                     </motion.div>
                 </div>
-
-                {/* Copyright */}
                 <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}

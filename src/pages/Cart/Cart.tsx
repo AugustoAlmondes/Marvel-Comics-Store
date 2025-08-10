@@ -45,17 +45,15 @@ export default function Cart() {
             className="min-h-screen bg-[#0A0A0A] text-[#E3E3E3] py-16 px-6 md:px-12 lg:px-24"
         >
             <div className="max-w-7xl mx-auto">
-                {/* Título */}
                 <motion.div
                     initial={{ y: -20 }}
                     animate={{ y: 0 }}
                     className="flex items-center gap-4 mb-12"
                 >
-                    <FiShoppingCart size={32} className="text-[#B5F684]" />
-                    <h1 className="text-4xl md:text-5xl font-bold">Your Cart</h1>
+                    <FiShoppingCart size={32} className="text-[#E3E3E3]" />
+                    <h1 className="text-4xl md:text-5xl font-bold font-ruda">Your Cart</h1>
                 </motion.div>
 
-                {/* Lista de Itens */}
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     <div className="lg:col-span-2">
                         {cartItems.length === 0 ? (
@@ -136,7 +134,6 @@ export default function Cart() {
                         )}
                     </div>
 
-                    {/* Resumo do Pedido */}
                     <div className="lg:col-span-1">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
@@ -162,10 +159,9 @@ export default function Cart() {
                                     <span>${subtotal.toFixed(2)}</span>
                                 </div>
 
-                                {/* Cupom de Desconto */}
                                 <div className="pt-4 border-t border-[#333]">
                                     <label className="block mb-2">Coupon Code</label>
-                                    <div className="flex gap-2">
+                                    <div className="flex gap-2 flex-wrap">
                                         <input
                                             type="text"
                                             value={coupon}

@@ -11,12 +11,12 @@ import Loading from '../../components/Loading';
 export default function BestProducts() {
 
     const { comics, isLoading } = useComics();
-    const fiveComics = comics?.slice(0, 5) || [];
+    const fiveComics = comics?.slice(0, 6) || [];
 
 
     return (
-        <section className={`py-16 px-6 md:px-12 lg:px-24 bg-[#0A0A0A]`}>
-            {/* Título e Subtítulo */}
+        <section className={`py-16 px-6 md:px-12 lg:px-24 min-h-[70vh] bg-[#0A0A0A]`}>
+
             <div className={`mb-12`}>
                 <StyledTitle text="BEST PRODUCTS" size={`text-6xl md:text-7xl`} />
 
@@ -38,7 +38,7 @@ export default function BestProducts() {
                     </div>
                 ) : (
                     <>
-                        <div className={`grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-6 mb-12`}>
+                        <div className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-6 gap-6 mb-12`}>
                             {
                                 fiveComics.map((comic) => (
                                     <ComicCard
