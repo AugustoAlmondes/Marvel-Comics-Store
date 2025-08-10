@@ -4,9 +4,23 @@ import { FaArrowLeft } from 'react-icons/fa';
 import { Link } from 'react-router';
 import ComicCard from '../../components/ComicCard';
 import InfoBackground from '../../assets/info-background.png';
+// import { Bounce, ToastContainer } from 'react-toastify';
+import { useComics } from '../../hooks/useComics';
+import { useEffect, useState } from 'react';
+import type { ComicCardType } from '../../types/comic';
 // import { useParams } from 'react-router';
 
 export default function ProductDetails() {
+
+    const { data } = useComics();
+    const [recommended, setRecommended] = useState<ComicCardType[]>([]);
+
+    useEffect(() => {
+        if (data && Array.isArray(data)) {
+            setRecommended(data?.slice(0, 5));
+        }
+    }, [data]);
+
     const comic = {
         id: 1,
         title: "The Amazing Spider-Man #1",
@@ -20,14 +34,13 @@ export default function ProductDetails() {
             artists: "Steve Ditko",
             pages: 32
         },
-        related: [...comics]
+        // related: [...comics]
     };
 
-    console.log(comic.related);
+    // console.log(comic.related);
 
     return (
         <div className="bg-[#0A0A0A] min-h-screen relative text-[#E3E3E3]">
-
             <div className={`absolute bottom-0 left-0 right-0 z-0`}>
                 <img
                     src={InfoBackground}
@@ -111,7 +124,7 @@ export default function ProductDetails() {
                     <section className={`mt-24 relative`}>
                         <h2 className={`font-bangers text-3xl mb-8 relative z-10`}>Related Comics</h2>
                         <div className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 mb-12 relative z-10`}>
-                            {comic.related.map((comic, index) => (
+                            {recommended.map((comic, index) => (
                                 <motion.div
                                     key={index}
                                     initial={{ opacity: 0, y: 20 }}

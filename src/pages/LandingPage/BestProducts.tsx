@@ -20,8 +20,6 @@ export default function BestProducts() {
         }
     }, [data]);
 
-    console.log(data)
-
     return (
         <section className={`py-16 px-6 md:px-12 lg:px-24 bg-[#0A0A0A]`}>
             {/* Título e Subtítulo */}

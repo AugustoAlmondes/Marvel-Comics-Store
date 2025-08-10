@@ -3,13 +3,14 @@ import BackgroundTop from '../../assets/about-background.png';
 import BackgroundBottom from '../../assets/welcome-background.png';
 import ComicCard from '../../components/ComicCard';
 import { useComics } from '../../hooks/useComics';
+import { Bounce, ToastContainer } from 'react-toastify';
 // import { useEffect } from 'react';
 
 // Dados mockados
 
 
 export const AllComics = () => {
-    
+
     const { data } = useComics();
 
     return (
@@ -19,25 +20,38 @@ export const AllComics = () => {
             exit={{ opacity: 0 }}
             className={`relative overflow-hidden min-h-screen py-16 bg-[#0A0A0A]`}
         >
+            <ToastContainer
+                position="top-right"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover={false}
+                theme="light"
+                transition={Bounce}
+            />
             <motion.img
-                src={BackgroundTop}
+                src={BackgroundBottom}
                 alt=""
-                className={`absolute top-0 left-0 w-full opacity-20`}
+                className={`absolute top-0 left-0 w-full h-[80vh] object-cover opacity-20`}
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.8 }}
             />
 
             <motion.img
-                src={BackgroundBottom}
+                src={BackgroundTop}
                 alt=""
-                className={`absolute bottom-0 left-0 w-full opacity-20`}
+                className={`absolute bottom-0 left-0 w-full h-[80vh] object-cover opacity-50`}
                 initial={{ y: 100 }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.8 }}
             />
 
-            <div className={`relative z-10 container mx-auto px-4`}>
+            <div className={`relative z-10 container mx-auto px-4 py-10`}>
                 <motion.div
                     initial={{ y: -20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
@@ -76,8 +90,8 @@ export const AllComics = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.6 }}
                 >
-                    <div className={`grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8`}>
-                        { data && Array.isArray(data) && data.map((comic, index) => (
+                    <div className={`pt-30 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8`}>
+                        {data && Array.isArray(data) && data.map((comic, index) => (
                             <motion.div
                                 key={index}
                                 initial={{ opacity: 0, y: 20 }}
