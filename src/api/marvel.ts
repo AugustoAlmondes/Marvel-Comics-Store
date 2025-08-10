@@ -8,7 +8,7 @@ const marvelApi = axios.create({
     baseURL: 'https://gateway.marvel.com/v1/public'
 });
 
-export const getComics = async (offset = 0, limit = 40) => {
+export const getComics = async (offset = 0, limit = 80) => {
     const ts = Date.now().toString();
     const hash = md5(ts + API_PRIVATE_KEY + API_PUBLIC_KEY);
 

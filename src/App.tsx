@@ -5,8 +5,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router"
 import { CartProvider } from "./providers/CartProvider"
 import Cart from "./pages/Cart/Cart";
 import { ComicsProvider } from "./providers/ComicsProvider";
-import { AllComics } from "./pages/AllComics/AllComics";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
+import AllComics from "./pages/AllComics/AllComics";
 
 const queryClient = new QueryClient();
 

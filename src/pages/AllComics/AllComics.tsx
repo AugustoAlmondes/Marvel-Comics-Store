@@ -5,6 +5,8 @@ import ComicCard from '../../components/ComicCard';
 import { Bounce, ToastContainer } from 'react-toastify';
 import { useComics } from '../../hooks/useComics';
 import Loading from '../../components/Loading';
+import { IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowBack } from "react-icons/io";
 
 export default function AllComics() {
 
@@ -24,7 +26,7 @@ export default function AllComics() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className={`relative overflow-hidden min-h-screen py-16 bg-[#0A0A0A]`}
+            className={`relative overflow-hidden min-h-screen transition-all duration-300 py-16 bg-[#0A0A0A]`}
         >
             <ToastContainer
                 position="bottom-right"
@@ -117,7 +119,15 @@ export default function AllComics() {
 
                             {/* Paginação melhorada */}
                             <div className={`flex justify-center mt-12 gap-2`}>
-
+                                {currentPage > 1 && (
+                                    <motion.button
+                                        onClick={() => handlePageChange(currentPage - 1)}
+                                        whileHover={{ scale: 1.05 }}
+                                        className={`w-10 h-10 flex items-center justify-center rounded-full bg-[#1A1A1A] text-white cursor-pointer`}
+                                    >
+                                        <IoIosArrowBack/>
+                                    </motion.button>
+                                )}
 
                                 {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
                                     const page = Math.max(1, Math.min(
@@ -131,9 +141,9 @@ export default function AllComics() {
                                             onClick={() => handlePageChange(page)}
                                             whileHover={{ scale: 1.05 }}
                                             whileTap={{ scale: 0.95 }}
-                                            className={`w-10 h-10 rounded-full ${page === currentPage
-                                                ? 'bg-[#B5F684] text-black'
-                                                : 'bg-[#1A1A1A] text-white'
+                                            className={`w-10 h-10 rounded-full cursor-pointer ${page === currentPage
+                                                    ? 'bg-[#B5F684] text-black'
+                                                    : 'bg-[#1A1A1A] text-white'
                                                 }`}
                                         >
                                             {page}
@@ -141,6 +151,15 @@ export default function AllComics() {
                                     ) : null;
                                 })}
 
+                                {currentPage < totalPages && (
+                                    <motion.button
+                                        onClick={() => handlePageChange(currentPage + 1)}
+                                        whileHover={{ scale: 1.05 }}
+                                        className={`w-10 h-10 flex items-center justify-center rounded-full bg-[#1A1A1A] text-white cursor-pointer`}
+                                    >
+                                        <IoIosArrowForward />
+                                    </motion.button>
+                                )}
                             </div>
                         </>
                     )}
