@@ -2,8 +2,10 @@ import { motion } from 'motion/react';
 import BackgroundTop from '../../assets/about-background.png';
 import BackgroundBottom from '../../assets/welcome-background.png';
 import ComicCard from '../../components/ComicCard';
-import { useComics } from '../../hooks/useComics';
+// import { useGetComics } from '../../hooks/useGetComics';
 import { Bounce, ToastContainer } from 'react-toastify';
+import { TbLoader2 } from 'react-icons/tb';
+import { useComics } from '../../hooks/useComics';
 // import { useEffect } from 'react';
 
 // Dados mockados
@@ -11,7 +13,7 @@ import { Bounce, ToastContainer } from 'react-toastify';
 
 export const AllComics = () => {
 
-    const { data } = useComics();
+    const { comics, isLoading } = useComics();
 
     return (
         <motion.section
@@ -21,7 +23,7 @@ export const AllComics = () => {
             className={`relative overflow-hidden min-h-screen py-16 bg-[#0A0A0A]`}
         >
             <ToastContainer
-                position="top-right"
+                position="bottom-right"
                 autoClose={3000}
                 hideProgressBar={false}
                 newestOnTop={false}
@@ -89,32 +91,40 @@ export const AllComics = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.6 }}
-                >
-                    <div className={`pt-30 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8`}>
-                        {data && Array.isArray(data) && data.map((comic, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.1 * index }}
-                            >
-                                <ComicCard comic={comic} />
-                            </motion.div>
-                        ))}
+                >{isLoading ? (
+                    <div className={`flex justify-center items-center`}>
+                        <TbLoader2 size={50} className={`animate-spin`} />
                     </div>
+                ) :
+                    (
+                        <>
+                            <div className={`pt-30 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8`}>
+                                {comics && Array.isArray(comics) && comics.map((comic, index) => (
+                                    <motion.div
+                                        key={index}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 0.1 * index }}
+                                    >
+                                        <ComicCard comic={comic} />
+                                    </motion.div>
+                                ))}
+                            </div>
 
-                    <div className={`flex justify-center mt-12 gap-2`}>
-                        {[1, 2, 3, 4, 5].map((page) => (
-                            <motion.button
-                                key={page}
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                className={`w-10 h-10 rounded-full ${page === 1 ? 'bg-[#B5F684] text-black' : 'bg-[#1A1A1A] text-white'}`}
-                            >
-                                {page}
-                            </motion.button>
-                        ))}
-                    </div>
+                            <div className={`flex justify-center mt-12 gap-2`}>
+                                {[1, 2, 3, 4, 5].map((page) => (
+                                    <motion.button
+                                        key={page}
+                                        whileHover={{ scale: 1.05 }}
+                                        whileTap={{ scale: 0.95 }}
+                                        className={`w-10 h-10 rounded-full ${page === 1 ? 'bg-[#B5F684] text-black' : 'bg-[#1A1A1A] text-white'}`}
+                                    >
+                                        {page}
+                                    </motion.button>
+                                ))}
+                            </div>
+                        </>
+                    )}
                 </motion.div>
             </div>
         </motion.section>

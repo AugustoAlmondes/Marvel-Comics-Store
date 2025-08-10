@@ -23,3 +23,10 @@ export interface ComicCardType {
     };
     isRare?: boolean;
 }
+
+export interface ComicsContextType {
+    comics: ComicCardType[];
+    isLoading: boolean;
+    error: Error | null;
+    refetch: () => void;
+}

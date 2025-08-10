@@ -23,4 +23,3 @@ export const getComics = async (offset = 0, limit = 40) => {
         }
     });
 };
-

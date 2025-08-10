@@ -1,24 +1,18 @@
 import StyledTitle from '../../components/StyledTitle';
 import ComicCard from '../../components/ComicCard';
 import { motion } from 'motion/react';
-import { useComics } from '../../hooks/useComics';
 import { TbLoader2 } from "react-icons/tb";
-import { useEffect, useState } from 'react';
-import type { ComicCardType } from '../../types/comic';
 import { Link } from 'react-router';
+import { useComics } from '../../hooks/useComics';
+
 
 
 
 export default function BestProducts() {
 
-    const [tenComics, setTenComics] = useState<ComicCardType[]>([]);
-    const { data, isLoading } = useComics();
+    const { comics, isLoading } = useComics();
+    const fiveComics = comics?.slice(0, 5) || [];
 
-    useEffect(() => {
-        if (data && Array.isArray(data)) {
-            setTenComics(data?.slice(0, 5));
-        }
-    }, [data]);
 
     return (
         <section className={`py-16 px-6 md:px-12 lg:px-24 bg-[#0A0A0A]`}>
@@ -46,12 +40,11 @@ export default function BestProducts() {
                     <>
                         <div className={`grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-6 mb-12`}>
                             {
-                                tenComics.map((comic, index) => (
+                                fiveComics.map((comic) => (
                                     <ComicCard
-                                        key={index}
+                                        key={comic.id}
                                         comic={{
-                                            ...comic,
-                                            isRare: Math.random() < 0.1
+                                            ...comic
                                         }}
                                     />
                                 ))

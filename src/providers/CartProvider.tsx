@@ -1,4 +1,4 @@
-import {  useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import type { CartItem, CouponType } from '../types/cart';
 import { RARE_COUPONS, COMMON_COUPONS } from '../utils/constants';
 import { CartContext } from '../contexts/CartContext';
@@ -71,7 +71,6 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     const applyCoupon = (code: string) => {
         const formattedCode = code.toUpperCase();
 
-        // Verifica cupons raros
         if (RARE_COUPONS.includes(formattedCode)) {
             const hasRareItems = items.some(item => item.isRare);
 
@@ -81,18 +80,18 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
             setAppliedCoupon({
                 code: formattedCode,
-                discount: 0.1, // 10%
+                discount: 0.1,
                 type: 'rare'
             });
+
 
             return { success: true, message: 'Rare coupon applied!' };
         }
 
-        // Verifica cupons comuns
         if (COMMON_COUPONS.includes(formattedCode)) {
             setAppliedCoupon({
-                code: formattedCode,
-                discount: 0.15, // 15%
+                code: formattedCode,        
+                discount: 0.15,
                 type: 'common'
             });
 
@@ -113,6 +112,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
                 items,
                 subtotal,
                 discount,
+                // total,
                 appliedCoupon,
                 addItem,
                 removeItem,

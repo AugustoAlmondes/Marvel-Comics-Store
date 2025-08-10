@@ -21,8 +21,7 @@ export default function ComicCard({ comic, onClick, showAddToCart = true }: Comi
 
         addItem({
             ...comic,
-            quantity: 1,
-            isRare: Math.random() < 0.1
+            quantity: 1
         });
 
         console.log('Item adicionado ao carrinho:', items);
