@@ -1,9 +1,9 @@
 import StyledTitle from '../../components/StyledTitle';
 import ComicCard from '../../components/ComicCard';
 import { motion } from 'motion/react';
-import { TbLoader2 } from "react-icons/tb";
 import { Link } from 'react-router';
 import { useComics } from '../../hooks/useComics';
+import Loading from '../../components/Loading';
 
 
 
@@ -34,7 +34,7 @@ export default function BestProducts() {
             {
                 isLoading ? (
                     <div className={`flex justify-center items-center`}>
-                        <TbLoader2 size={50} className={`animate-spin`} />
+                        <Loading/>
                     </div>
                 ) : (
                     <>

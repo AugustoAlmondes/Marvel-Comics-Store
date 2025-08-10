@@ -2,10 +2,9 @@ import { motion } from 'motion/react';
 import BackgroundTop from '../../assets/about-background.png';
 import BackgroundBottom from '../../assets/welcome-background.png';
 import ComicCard from '../../components/ComicCard';
-// import { useGetComics } from '../../hooks/useGetComics';
 import { Bounce, ToastContainer } from 'react-toastify';
-import { TbLoader2 } from 'react-icons/tb';
 import { useComics } from '../../hooks/useComics';
+import Loading from '../../components/Loading';
 // import { useEffect } from 'react';
 
 // Dados mockados
@@ -93,7 +92,7 @@ export const AllComics = () => {
                     transition={{ delay: 0.6 }}
                 >{isLoading ? (
                     <div className={`flex justify-center items-center`}>
-                        <TbLoader2 size={50} className={`animate-spin`} />
+                        <Loading/>
                     </div>
                 ) :
                     (

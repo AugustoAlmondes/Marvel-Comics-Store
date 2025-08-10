@@ -2,12 +2,12 @@ import { motion } from 'motion/react';
 import { FaArrowLeft } from 'react-icons/fa';
 import { Link, useParams } from 'react-router';
 import InfoBackground from '../../assets/info-background.png';
-import { TbLoader2 } from 'react-icons/tb';
 import ComicCard from '../../components/ComicCard';
 import { useCart } from '../../hooks/useCart';
 import { toast, ToastContainer } from 'react-toastify';
 import type { ComicCardType } from '../../types/comic';
 import { useComics } from '../../hooks/useComics';
+import Loading from '../../components/Loading';
 
 export default function ProductDetails() {
     const { id } = useParams();
@@ -27,8 +27,7 @@ export default function ProductDetails() {
     if (isLoading) {
         return (
             <div className={`w-full h-screen flex flex-col gap-4 items-center justify-center bg-[#0A0A0A]`}>
-                <TbLoader2 size={50} className={`animate-spin`} />
-                <p>Loading comic details...</p>
+                <Loading/>
             </div>
         );
     }
