@@ -59,13 +59,17 @@ O sistema conta com:
 
 ## 🛠️ Tecnologias Utilizadas
 
-| Categoria          | Tecnologias                                                 |
-| ------------------ | ----------------------------------------------------------- |
-| **Core**           | React.js, TypeScript, Vite                                  |
-| **Estilização**    | Tailwind CSS, Styled Components, Framer Motion, React Icons |
-| **Estado & Rotas** | Context API, React Router                                   |
-| **Utilitários**    | Axios, React Toastify                                       |
-| **API**            | Marvel API                                                  |
+| Categoria                              | Tecnologias & Ferramentas                                        | Descrição / Uso                                                 |
+| -------------------------------------- | ---------------------------------------------------------------- | --------------------------------------------------------------- |
+| **Core**                               | React.js, TypeScript, Vite                            | Framework front-end moderno, tipagem estática e bundler rápido  |
+| **Estilização**                        | Tailwind CSS, Styled Components, Framer Motion, React Icons | CSS utilitário, estilos dinâmicos, animações e ícones vetoriais |
+| **Gerenciamento de Estado**            | React Context API, Redux Toolkit                           | Estado global e local de forma escalável e eficiente            |
+| **Gerenciamento de Dados Assíncronos** | React Query                            | Fetching, cache e sincronização com API com facilidade          |
+| **Roteamento**                         | React Router                                                 | Navegação SPA com rotas declarativas                            |
+| **HTTP Client**                        | Axios                                                    | Comunicação com API REST da Marvel                              |
+| **Persistência Local**                 | LocalStorage (via custom hooks / libs)                           | Armazenamento dos dados do carrinho e preferências              |
+| **Notificações**                       | React Toastify                                             | Feedback visual para ações do usuário                           |
+| **Utilitários**                        | MD5 (para hash de autenticação na API Marvel), Toastify          | Criptografia simples e notificações                             |
 
 ---
 
