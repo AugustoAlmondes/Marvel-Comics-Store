@@ -67,8 +67,7 @@ O sistema conta com:
 | **Gerenciamento de Dados Assíncronos** | React Query                            | Fetching, cache e sincronização com API com facilidade          |
 | **Roteamento**                         | React Router                                                 | Navegação SPA com rotas declarativas                            |
 | **HTTP Client**                        | Axios                                                    | Comunicação com API REST da Marvel                              |
-| **Persistência Local**                 | LocalStorage (via custom hooks / libs)                           | Armazenamento dos dados do carrinho e preferências              |
-| **Notificações**                       | React Toastify                                             | Feedback visual para ações do usuário                           |
+| **Persistência Local**                 | LocalStorage (via custom hooks / libs)                           | Armazenamento dos dados do carrinho e preferências              |               |
 | **Utilitários**                        | MD5 (para hash de autenticação na API Marvel), Toastify          | Criptografia simples e notificações                             |
 
 ---
