@@ -1,11 +1,30 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import type { CartItem, CouponType } from '../types/cart';
 import { RARE_COUPONS, COMMON_COUPONS } from '../utils/constants';
 import { CartContext } from '../contexts/CartContext';
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
-    const [items, setItems] = useState<CartItem[]>([]);
-    const [appliedCoupon, setAppliedCoupon] = useState<CouponType | undefined>();
+    const [items, setItems] = useState<CartItem[]>(() => {
+        const storedItems = localStorage.getItem("cart-items");
+        return storedItems ? JSON.parse(storedItems) : [];
+    });
+
+    const [appliedCoupon, setAppliedCoupon] = useState<CouponType | undefined>(() => {
+        const storedCoupon = localStorage.getItem("cart-coupon");
+        return storedCoupon ? JSON.parse(storedCoupon) : undefined;
+    });
+
+    useEffect(() => {
+        localStorage.setItem("cart-items", JSON.stringify(items));
+    }, [items]);
+
+    useEffect(() => {
+        if (appliedCoupon) {
+            localStorage.setItem("cart-coupon", JSON.stringify(appliedCoupon));
+        } else {
+            localStorage.removeItem("cart-coupon");
+        }
+    }, [appliedCoupon]);
 
     // Cálculos derivados
     const subtotal = useMemo(
@@ -89,7 +108,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
         if (COMMON_COUPONS.includes(formattedCode)) {
             setAppliedCoupon({
-                code: formattedCode,        
+                code: formattedCode,
                 discount: 0.15,
                 type: 'common'
             });
