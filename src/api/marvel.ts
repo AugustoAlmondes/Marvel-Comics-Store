@@ -11,7 +11,7 @@ const comicVineApi = axios.create({
     baseURL: '/api/comicvine',
     params: {
         api_key: API_KEY,
-        format: 'json'
+        format: 'json',
     }
 });
 
@@ -53,6 +53,9 @@ const mapComicVineToMarvel = (issue: any) => ({
 export const getComics = async (offset = 0, limit = 100) => {
     // Comic Vine usa 'limit' e 'offset'. O '/' no final é crucial para evitar redirecionamento 301 que causa erro de CORS.
     const response = await comicVineApi.get('/issues/', {
+        headers: {
+            'Cache-Control': 'no-store'
+        },
         params: {
             offset,
             limit,
