@@ -125,9 +125,9 @@ export default function ProductDetails() {
                             <div className={`mb-8 p-6 border border-[#333] rounded-lg`}>
                                 <h2 className={`text-2xl font-bold mb-4`}>Comic Details</h2>
                                 <ul className={`space-y-3`}>
-                                    {comic.pageCount && (
+                                    {comic.cover_date && (
                                         <li>
-                                            <span className={`font-semibold`}>Pages:</span> {comic.pageCount}
+                                            <span className={`font-semibold`}>Data de Lançamento:</span> {comic.cover_date}
                                         </li>
                                     )}
 
