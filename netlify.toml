@@ -1,0 +1,10 @@
+[[redirects]]
+  from = "/api/comicvine/*"
+  to = "https://comicvine.gamespot.com/api/:splat"
+  status = 200
+  force = true
+
+[[headers]]
+  for = "/api/comicvine/*"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
