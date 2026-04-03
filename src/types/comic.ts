@@ -1,7 +1,7 @@
 export interface ComicCardType {
     id: number;
     title: string;
-    pageCount?: number;
+    cover_date?: string;
     textObjects: [
         {
             text: string
