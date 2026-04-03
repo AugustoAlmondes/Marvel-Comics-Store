@@ -60,8 +60,8 @@ export default function ComicCard({ comic, onClick, showAddToCart = true }: Comi
 
             <div className={`p-4`}>
                 <h3 className={`font-bold text-lg truncate`}>{comic.title}</h3>
-                {comic.pageCount && (
-                    <p className={`text-sm text-[#E3E3E3]`}>Page {comic.pageCount}</p>
+                {comic.cover_date && (
+                    <p className={`text-sm text-[#E3E3E3]`}>Data de Lançamento: {comic.cover_date}</p>
                 )}
                 <div className={`flex justify-between items-center mt-2`}>
                     <p className={`text-xl text-[#B5F684]`}>
